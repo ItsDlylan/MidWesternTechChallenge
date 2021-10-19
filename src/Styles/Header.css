@@ -1,0 +1,69 @@
+/* Gold: #DEBF79
+Dark Gray (background): #222222
+Mid Gray (text): #858585
+Light Gray (inputs): #F5F5F5
+Red: #800000 */
+.absolute {
+	position: absolute;
+	width: calc(100% - 10rem);
+	padding-left: 10rem;
+}
+.header {
+	display: flex;
+	height: 15rem;
+	padding-top: 8rem;
+	padding-bottom: 10rem;
+	align-items: center;
+	justify-content: space-between;
+}
+.header__img--container {
+	height: 7rem;
+}
+.header__img--container img {
+	height: 100%;
+}
+.header__nav--link {
+	text-decoration: none;
+	color: #debf79;
+	font-weight: 800;
+	font-size: 1.7rem;
+}
+@media screen and (max-width: 900px) {
+	.absolute {
+		padding-left: 5rem;
+		width: calc(100% - 10rem);
+	}
+
+	.header__img--container {
+		height: 5rem;
+	}
+}
+@media screen and (max-width: 630px) {
+	.header {
+		margin: 0rem 3rem;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		height: 11rem;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.header__img--container {
+		height: 4rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.absolute {
+		padding-top: 2rem;
+		width: 100%;
+		margin: 0 3rem 0 0;
+		padding-left: 5rem;
+		padding-right: 3rem;
+	}
+}
+@media screen and (max-width: 500px) {
+	.absolute {
+		padding-left: 2.5rem;
+	}
+}

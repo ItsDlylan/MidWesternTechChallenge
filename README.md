@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Technical Challenge
+This is a simple challenge to assess a base skill set and architectural mindset.
+Complete to the best of your ability, if you have any questions reach out your contact.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You will find all necessary assets provided in this repository.
 
-## Available Scripts
+Once complete, place your codebase in a github repository and provide the link your contact at Midwestern.
 
-In the project directory, you can run:
+## 1. Front-end Challenge
+Any framework or package may be used in addition to any that may have been requested by your contact.
 
-### `yarn start`
+- Programmatically build out both layouts using HTML/CSS/SASS/JS or any other stack/framework mentioned
+  by your contact, see screenshots and [Figma](https://api.mwi.dev/figma) prototype for what the
+  finished product should look like.
+  - Desktop and mobile views are available from the left side menu in [Figma](https://api.mwi.dev/figma)
+  - Scale elements/sections as necessary for content breaks in a responsive manner.
+  - **Fonts**: https://fonts.google.com/specimen/Poppins
+    - Bold
+    - Medium
+  - **Primary Colors**:
+    - Gold: #DEBF79
+    - Dark Gray (background): #222222
+    - Mid Gray (text): #858585
+    - Light Gray (inputs): #F5F5F5
+    - Red: #800000
+- At the bottom of the mock up there is a Javascript puzzle. Please use the following data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Object 1
+- Matt Johnson
+- Bart Paden
+- Ryan Doss
+- Jared Malcolm
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Object 2
+- Matt Johnson
+- Bart Paden
+- Jordan Heigle
+- Tyler Viles
 
-### `yarn test`
+Result Object
+- Matt Johnson
+- Bart Paden
+- Ryan Doss
+- Jared Malcolm
+- Jordan Heigle
+- Tyler Viles
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. Integration Challenge
+We've developed a very basic API that allows you pull content for the sections in the design.
 
-### `yarn build`
+Please use the following endpoints to populate each of the Lorem Ipsum sections as well as submitting the contact form.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Base URL
+https://api.mwi.dev
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Content Sections
+- GET `/content/{page}` {page} can be `home` or `contact`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Will return an array of JSON objects containing a unique title and description for each section of the design.
 
-### `yarn eject`
+Images are not provided from the API, please hardcode the urls for these.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Example Response**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "page_id": 1,
+      "title": "Some Title",
+      "content": "Some chunk of text from the API",
+      "page": {
+        "id": 1,
+        "label": "home",
+        "name": "Home",
+        "created_at": "timestamp",
+        "updated_at": "timestamp"
+      },
+      "created_at": "timestamp",
+      "updated_at": "timestamp"
+    }
+  ]
+}
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Contact Form
+- POST `/contact`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Accepts a form data object with all the key/value pairs from the form.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Example Payload**
+```json
+{
+  "first_name": "First",
+  "last_name": "Last",
+  "title": "Title",
+  "email": "some@email.com",
+  "message": "Message content text"
+}
+```
 
-## Learn More
+## 3. Back-end Challenge
+This will allow the client front-end to request content for all Lorem Ipsum sections as well as submit and store results from the contact form.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Build a basic, non-authenticated API
+- Setup up a DB of your choosing (MySQL, Postgres etc.)
+- Write migrations for database table and seeders for housing Lorem Ipsum content
+- Write migrations for database table to store results of the contact form
+- Create GET endpoint that returns content from the DB for each of the Lorem Ipsum sections (URL path up to your discretion)
+  - Content for title
+  - Content for paragraph
+  - Images src may be hardcoded, or you may store URL in DB
+- Create POST endpoint for storing the results of the contact form in the DB on submit (URL path up to your discretion)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Resources
+- [Figma](https://api.mwi.dev/figma)
+- [Next.js by Vercel - The React Framework](https://nextjs.org/)
+- [NestJS - A progressive Node.js framework](https://nestjs.com/)
+- [Laravel](https://laravel.com)
