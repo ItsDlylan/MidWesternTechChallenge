@@ -29,11 +29,6 @@ app.get('/get-data', (req, res) => {
 app.post('/contact-form', async (req, res) => {
 	const cart = await Cart.create(req.body);
 
-	// res.status(201).send({
-	// 	status: 'success',
-	// 	message:
-	// 		'Message was sent! Check your email from time to time for updates!',
-	// });
 	res.status(201).send({
 		status: 'success',
 		message:
